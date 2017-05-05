@@ -40,3 +40,5 @@ group :production do
   gem 'rails_12factor'
   gem 'rack-attack'
 end
+
+gem 'slim'
