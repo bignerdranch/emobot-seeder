@@ -20,3 +20,14 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
 end
 
+
+group :development do
+  gem 'bullet'
+  gem 'faker'
+end
+
+group :development, :test do
+  gem 'dotenv-rails'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+end
