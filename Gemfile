@@ -42,3 +42,6 @@ group :production do
 end
 
 gem 'slim'
+group :test do
+  gem 'capybara'
+end
