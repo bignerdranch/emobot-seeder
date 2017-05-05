@@ -1,24 +1,15 @@
-# README
+# Emobot Seeder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Seeds data for [emobot-backend](https://github.com/stickybandits/emobot-backend).
 
-Things you may want to cover:
+**WARNING: This deletes all current data in the DB first!**
 
-* Ruby version
+## Installation
 
-* System dependencies
+- Install Ruby and Rails
+- Set up the `config/database.yml`. You can point `development` to your local app and `production` to the real app (but be careful!)
 
-* Configuration
+## Usage
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Local: `rails db:seed`
+- Production: `rails db:seed RAILS_ENV=production`

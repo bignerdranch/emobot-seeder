@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: emobot-seeder_development
+  database: emobot_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: emobot-seeder_production
-  username: emobot-seeder
-  password: <%= ENV['EMOBOT-SEEDER_DATABASE_PASSWORD'] %>
+  database: deh4tn85j17sfp
+  username: zksigyowksncup
+  password: 739be6e8d628cfb66ce81d45e7b96da068d4ebcd9c1ce94f1764bc417f56d053
+  host: ec2-23-23-220-163.compute-1.amazonaws.com
