@@ -8,11 +8,20 @@
 
 Reaction.delete_all
 Kudo.delete_all
+Emoji.delete_all
 Value.delete_all
 
-brilliant = Value.create!(name: 'Brilliant', slug: 'brilliant', emoji_character: '🎓', emoji_alpha_code: 'mortar_board')
-hardworking = Value.create!(name: 'Hardworking', slug: 'hardworking', emoji_character: '💪', emoji_alpha_code: 'muscle')
-kind = Value.create!(name: 'Kind', slug: 'kind', emoji_character: '❤️', emoji_alpha_code: 'heart')
+brilliant = Value.create!(name: 'Brilliant', slug: 'brilliant')
+Emoji.create!(value: brilliant, character: '🎓', alpha_code: 'value_brilliant')
+Emoji.create!(value: brilliant, character: '🎓', alpha_code: 'mortar_board')
+
+hardworking = Value.create!(name: 'Hardworking', slug: 'hardworking')
+Emoji.create!(value: hardworking, character: '💪', alpha_code: 'value_hardworking')
+Emoji.create!(value: hardworking, character: '💪', alpha_code: 'muscle')
+
+kind = Value.create!(name: 'Kind', slug: 'kind')
+Emoji.create!(value: kind, character: '❤️', alpha_code: 'value_kind')
+Emoji.create!(value: kind, character: '❤️', alpha_code: 'heart')
 
 values = [brilliant, hardworking, kind]
 users = %w(caitlin kmars jjustice strickland)
