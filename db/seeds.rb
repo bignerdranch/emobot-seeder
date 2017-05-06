@@ -27,6 +27,8 @@ values = [brilliant, hardworking, kind]
 users = %w(caitlin kmars jjustice strickland)
 channels = %w(serious-business serious-coding ios-and-mac backend web lunch halp thanks blog-wranglin)
 
+kudos = []
+
 100.times do
   from_user = users.sample
   to_user = (users - [from_user]).sample
@@ -35,10 +37,29 @@ channels = %w(serious-business serious-coding ios-and-mac backend web lunch halp
   timestamp = Faker::Number.decimal(9, 6)
 
   kudo = Kudo.create(from_user: from_user, to_user: to_user, description: description, channel: channel, timestamp: timestamp)
+  kudos.push(kudo)
+end
 
-  Random.rand(10).times do
+randomized_values = values - [brilliant]
+randomized_values.each do |value|
+  users.each do |to_user|
+    points = Random.rand(100)
+    puts "Assigning #{points} #{value.slug} points to #{to_user}"
+    points.times do
+      from_user = (users - [to_user]).sample
+      kudo = kudos.select { |k| k.to_user == to_user }.sample
+      Reaction.create!(kudo: kudo, value: value, from_user: from_user)
+    end
+  end
+end
+
+# hard-coded brilliant values
+brilliant_points = {'caitlin' => 76, 'kmars' => 75, 'strickland' => 57, 'jjustice' => 34}
+brilliant_points.each_pair do |to_user, points|
+  puts "Assigning #{points} brilliant points to #{to_user}"
+  points.times do
     from_user = (users - [to_user]).sample
-    value = values.sample
-    Reaction.create(kudo: kudo, value: value, from_user: from_user)
+    kudo = kudos.select { |k| k.to_user == to_user }.sample
+    reaction = Reaction.create!(kudo: kudo, value: brilliant, from_user: from_user)
   end
 end
