@@ -54,7 +54,7 @@ randomized_values.each do |value|
 end
 
 # hard-coded brilliant values
-brilliant_points = {'caitlin' => 76, 'kmars' => 75, 'strickland' => 57, 'jjustice' => 34}
+brilliant_points = {'caitlin' => 75, 'kmars' => 76, 'strickland' => 57, 'jjustice' => 34}
 brilliant_points.each_pair do |to_user, points|
   puts "Assigning #{points} brilliant points to #{to_user}"
   points.times do
